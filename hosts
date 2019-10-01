@@ -1,0 +1,16 @@
+[webservers]
+# 172.16.3.[1:62]
+# 172.16.3.1
+raspberrypi.local
+# 192.168.0.10
+# 192.168.0.11
+
+[bastion]
+# bastion ansible_port=20022
+#
+
+[webservers:vars]
+ansible_ssh_port=22
+ansible_ssh_user=pi
+ansible_ssh_pass=raspberry
+ansible_sudo_pass=raspberry

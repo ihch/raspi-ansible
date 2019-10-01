@@ -1,0 +1,12 @@
+- hosts: webservers
+  remote_user: pi
+  sudo: yes
+
+  tasks:
+    - name: Wi-Fi Config
+      copy:
+        dest: /etc/apt/apt.conf.d/99proxy
+        content: |
+          Acquire::http::proxy "http://cproxy.okinawa-ct.ac.jp:8080/";
+          Acquire::https::proxy "http://cproxy.okinawa-ct.ac.jp:8080/";
+
