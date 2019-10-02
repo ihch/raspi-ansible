@@ -1,7 +1,7 @@
 [webservers]
-# 172.16.3.[1:62]
+172.16.3.[1:60]
 # 172.16.3.1
-raspberrypi.local
+# raspberrypi.local
 # 192.168.0.10
 # 192.168.0.11
 
@@ -10,7 +10,7 @@ raspberrypi.local
 #
 
 [webservers:vars]
-ansible_ssh_port=22
-ansible_ssh_user=pi
-ansible_ssh_pass=raspberry
-ansible_sudo_pass=raspberry
+#ansible_ssh_port=22
+#ansible_ssh_user=pi
+#ansible_ssh_pass=raspberry
+#ansible_sudo_pass=raspberry
