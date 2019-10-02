@@ -1,6 +1,6 @@
 - hosts: webservers
-  remote_user: pi
-  sudo: yes
+  # remote_user: pi
+  # sudo: yes
   vars:
     home_dir: "/home/pi"
     input_tar: "{{ home_dir }}/.xprofile"
@@ -14,12 +14,15 @@
       locale_gen:
         name: ja_JP.UTF-8
 
+    - name: Change Locale
+      command: update-locale LANG=ja_JP.UTF-8
+
     - name: Timezone Config to Asia/Tokyo
       timezone:
         name: Asia/Tokyo
 
     - name: Keyboard layout Config
-      shell: sudo raspi-config nonint do_configure_keyboard jp
+      shell: raspi-config nonint do_configure_keyboard jp
 
     - name: system env proxy
       copy:
@@ -31,9 +34,6 @@
           HTTP_PROXY="http://cproxy.okinawa-ct.ac.jp:8080/"
           HTTPS_PROXY="http://cproxy.okinawa-ct.ac.jp:8080/"
           FTP_PROXY="http://cproxy.okinawa-ct.ac.jp:8080/"
-
-    - name: default editor config to vim
-      shell: sudo update-alternatives --set editor /usr/bin/vim.basic
 
     - name: apt update
       apt:
@@ -63,8 +63,5 @@
     - name: default editor config to vim
       # dependencies:
       #   - { role: install vim }
-      shell: sudo update-alternatives --set editor /usr/bin/vim.basic
-
-    - name: reboot
-      reboot:
+      shell: update-alternatives --set editor /usr/bin/vim.basic
 
