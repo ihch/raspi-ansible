@@ -1,0 +1,16 @@
+- hosts: webservers
+  remote_user: root
+  sudo: yes
+
+  tasks:
+    - name: rm archives
+      shell: rm -rf /var/lib/apt/lists/*
+
+    - name: rm archives
+      shell: rm /var/cache/apt/archives/*.deb
+
+    - name: apt update
+      shell: apt update
+
+    - name: apt upgrade
+      shell: apt --download-only upgrade -y && rm /var/cache/apt/archives/*.deb
