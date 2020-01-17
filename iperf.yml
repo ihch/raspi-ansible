@@ -1,0 +1,9 @@
+- hosts: webservers
+  remote_user: root
+  sudo: yes
+
+  tasks:
+    - name: run iperf
+      shell: sh /root/research/iperf_client.sh
+      args:
+        chdir: /root/research

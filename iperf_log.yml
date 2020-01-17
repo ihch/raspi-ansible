@@ -1,0 +1,15 @@
+- hosts: webservers
+  remote_user: root
+  sudo: yes
+
+  tasks:
+          # - name: mv client log
+          # shell: mv /root/research/log/client_log.csv /root/research/log/client_log_`date "+%Y%m%d-%H%M%S"`.csv 
+
+      # - name: mv server log
+      # - shell: mv /root/research/log/server_log_* /root/research/log/server_log.csv 
+    - name: rm server log
+      shell: rm /root/research/log/server_log.csv
+
+    - name: rm server log
+      shell: rm /root/research/log/serve_log.csv
